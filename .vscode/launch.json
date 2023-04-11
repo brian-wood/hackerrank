@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/binary_tree_top_view",
+      "program": "${workspaceFolder}/hash_table_ransom_note_fast",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",

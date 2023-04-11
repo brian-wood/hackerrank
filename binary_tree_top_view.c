@@ -52,15 +52,9 @@ struct node {
   
 };
 */
-int max_node = 0;
 
-int mod(int a, int b) {
-  int m = a % b;
-  if (m < 0) {
-    m = (b < 0) ? m - b : m + b;
-  }
-  return m;
-}
+#define COLS 2
+int max_node = 0;
 
 void node_count(struct node *root) {
     if (root) {
@@ -70,15 +64,16 @@ void node_count(struct node *root) {
     }
 }
 
-void tree_parse(struct node *root, int top_v, int depth, int *arr) {
+void tree_parse(struct node *root, int top_v, int depth, int arr[][COLS]) {
     if (root) {
         depth++;
-        printf("node data: %d, depth: %d, top_v: %d\n", root->data, depth, top_v);
+        //printf("node data: %d, depth: %d, top_v: %d\n", root->data, depth, top_v);
 
 
         // Check if this is top view node we need to store.
-        if (arr[mod(top_v, max_node)] == -(max_node+1)) {
-            arr[mod(top_v, max_node)] = root->data;
+        if ((arr[top_v + max_node][0] == -(max_node+1)) || (arr[top_v + max_node][1] > depth)) {
+            arr[top_v + max_node][0] = root->data;
+            arr[top_v + max_node][1] = depth;
         }
         // Move to next top_v of nodes
         tree_parse(root->left, top_v-1, depth, arr);
@@ -93,33 +88,40 @@ void topView(struct node *root) {
     if (root) {
         // Get number of nodes in binary tree
         node_count(root);
-        printf("Node Count: %d\n", max_node);
+        //printf("Node Count: %d\n", max_node);
         
-        // Allocate storage array for ordering the top view nodes
-        // and set array to default value that cannot be possible
-        // based on number of nodes in tree
-        int *top_v_arr = calloc(max_node, sizeof(int));
-        if (top_v_arr == NULL)
-            return; // memory allocation failed, exit
+       /* Allocate storage array for ordering the top view nodes
+       * and set array size to value that could be max-left nodes or max-right nodes of center.
+       * Example: with max_nodes as a value of 15 we'll need to have the ability
+       * to store all left of root/center=0 up to -15 as the left-most node if only
+       * left nodes present. In the opposite case you could also end up with a tree having all
+       * right tree nodes up to +15, so to account for this we'll
+       * store into an array that is 15*2=30, this will allow for -15...0...15 nodes all 
+       * stored into array starting with 0...N...31 (where N=15 will be our center/zero node). Then
+       * when we print the array at the end all the top-view nodes will be in correct
+       * order from left to right. 
+       */
+       int top_v_arr[(max_node*2)+1][COLS];
         
-        for (int i = 0; i < max_node; i++)
-            top_v_arr[i] = -(max_node+1);
+        for (int i = 0; i < (max_node*2)+1; i++) {
+            top_v_arr[i][0] = -(max_node+1);
+            top_v_arr[i][1] = -(max_node+1);
+        }
 
         // Set our first member of top view array as root will always be present
-        top_v_arr[mod(top_v, max_node)] = root->data;
-        printf("node data: %d, depth: %d, top_v: %d\n", root->data, depth, top_v);
+        top_v_arr[top_v + max_node][0] = root->data;
+        top_v_arr[top_v + max_node][1] = depth;
+        //printf("node data: %d, depth: %d, top_v: %d\n", root->data, depth, top_v);
 
         // Start recursive tree parse to add in top view nodes
         tree_parse(root->left, top_v-1, depth, top_v_arr);
         tree_parse(root->right, top_v+1, depth, top_v_arr);
 
-        /*
-        for (int i = 0; i < max_node; i++) {
-            if (top_v_arr[mod(top_v, max_node)] != -(max_node+1))
-                printf("%d ", top_v_arr[mod(top_v, max_node)]);
+
+        for (int i = 0; i < (max_node*2)+1; i++) {
+            if (top_v_arr[i][0] != -(max_node+1))
+                printf("%d ", top_v_arr[i][0]);
         }
-        */
-        free(top_v_arr);
     }
 }
 
