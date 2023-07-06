@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/hash_table_ransom_note_fast",
+      "program": "${workspaceFolder}/array_ranked_player_v3",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
