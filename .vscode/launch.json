@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/array_ranked_player_v3",
+      "program": "${workspaceFolder}/array_single_to_double",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
