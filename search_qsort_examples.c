@@ -2,10 +2,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* Change this value to:
+* 1 if test integer array is storted ascending (low to high)
+* 0 if test integer array is storted descending (high to low)
+*/
+#define ASCENDING_DECENDING 1
 
-int compare_integers(const void *a, const void *b)
+/* Comparison function for integer array items */
+int compare_integers(const void *a, const void *b) 
 {
-    return (*(int*)a - *(int*)b);
+    if (ASCENDING_DECENDING)
+        return (*(int*)a - *(int*)b);
+    else
+        return (*(int*)b - *(int*)a);
 }
 
 int main()

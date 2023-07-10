@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/array_single_to_double",
+      "program": "${workspaceFolder}/array_find_stock_price_average",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
