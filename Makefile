@@ -25,6 +25,7 @@ all:
 	$(CC) $(CFLAGS) -o array_single_to_double array_single_to_double.c $(LDFLAGS)
 	$(CC) $(CFLAGS) -o pointer_comparison pointer_comparison.c $(LDFLAGS)
 	$(CC) $(CFLAGS) -o array_find_stock_price_average array_find_stock_price_average.c $(LDFLAGS)
+	$(CC) $(CFLAGS) -o utopian_tree utopian_tree.c $(LDFLAGS)
 
 clean:
 	rm  balanced_array balanced_paren balanced_paren2 array_reordering\
@@ -32,4 +33,4 @@ clean:
 		binary_tree_level_order binary_tree_top_view hash_table_ransom_note hash_table_ransom_note_fast\
 		array_ranked_player array_ranked_player_recursive array_ranked_player_v3\
 		search_bsearch_examples search_qsort_examples sum_multiples_3_5_7_to_n\
-		array_single_to_double pointer_comparison array_find_stock_price_average array_ranked_player_recursive_v3
+		array_single_to_double pointer_comparison array_find_stock_price_average utopian_tree

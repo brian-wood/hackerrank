@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/array_find_stock_price_average",
+      "program": "${workspaceFolder}/utopian_tree",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
