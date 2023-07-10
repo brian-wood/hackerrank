@@ -49,7 +49,7 @@ int main()
 
     fprintf(stderr, "Enter a two letter search string as search key "
                 "(i.e., \"aa\", \"jj\", etc...: ");
-    scanf("%s", &search_string);
+    scanf("%s", search_string);
 
     /* Qsort the elements of the array */
     qsort(str_array, sizeof(str_array)/sizeof(str_array[0]), 20,

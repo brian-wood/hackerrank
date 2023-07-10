@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/utopian_tree",
+      "program": "${workspaceFolder}/viral_advertising",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
