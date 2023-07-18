@@ -30,6 +30,8 @@ all:
 	$(CC) $(CFLAGS) -o beautiful_days_at_the_movies beautiful_days_at_the_movies.c $(LDFLAGS)
 	$(CC) $(CFLAGS) -o viral_advertising viral_advertising.c $(LDFLAGS)
 	$(CC) $(CFLAGS) -o monte_carlo_Pi monte_carlo_Pi.c $(LDFLAGS)
+	$(CC) $(CFLAGS) -o save_the_prisoner save_the_prisoner.c $(LDFLAGS)
+	$(CC) $(CFLAGS) -o array_circular_rotation array_circular_rotation.c $(LDFLAGS)
 
 clean:
 	rm  balanced_array balanced_paren balanced_paren2 array_reordering\
@@ -38,4 +40,5 @@ clean:
 		array_ranked_player array_ranked_player_recursive array_ranked_player_v3\
 		search_bsearch_examples search_qsort_examples sum_multiples_3_5_7_to_n\
 		array_single_to_double pointer_comparison array_find_stock_price_average utopian_tree\
-		angry_professor beautiful_days_at_the_movies viral_advertising monte_carlo_Pi
+		angry_professor beautiful_days_at_the_movies viral_advertising monte_carlo_Pi\
+		save_the_prisoner array_circular_rotation

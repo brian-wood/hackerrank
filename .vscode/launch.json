@@ -5,7 +5,7 @@
       "name": "(gdb) Launch",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/viral_advertising",
+      "program": "${workspaceFolder}/array_circular_rotation",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${fileDirname}",
